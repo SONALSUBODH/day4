@@ -1,14 +1,16 @@
 variable "ami_id" {
-  type = string
+  type    = string
   default = "ami-0f918f7e67a3323f0"
 }
 
 variable "instance_type" {
-  type    = list
-  default = ["t2.micro" , "t2.medium"]
+  type    = list(string)
+  default = ["t2.micro", "t2.medium"]
 }
 variable "instance_tags" {
-  type = map
+  type    = map(any)
   default = {
-     Name = "WebServer"
-     Team = "DevOps"
+    Name  = "WebServer"
+    Team  = "DevOps"
+  }
+}
