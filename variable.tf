@@ -16,7 +16,7 @@ variable "instance_tags" {
 }
 variable "sg_name" {
 type     = string
-default  = "tf_sg1"
+default  = "tf_sg"
 }
 variable "sg_description" {
 type     = string
