@@ -1,6 +1,6 @@
 resource "aws_security_group" "tf_sg" {
   name        = "tf_sg"
-  description = "Allow HTTPS to web server"
+  description = "Allow TLS inbound traffic"
   vpc_id      = "vpc-05bdcc8880aab85ab"
 
   ingress {
@@ -59,8 +59,8 @@ data "aws_vpc" "default" {
   default = true
 }
 
-resource "aws_instance" "web" {
-  ami             = data.aws_ami.ubuntu.id
+resource "aws_instance" "demo" {
+  ami             = var.ami_id
   instance_type   = var.instance_type[0]
   security_groups = [aws_security_group.tf_sg.name]
   tags            = var.instance_tags
